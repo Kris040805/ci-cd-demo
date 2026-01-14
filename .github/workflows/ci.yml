@@ -24,11 +24,7 @@ jobs:
 
     # -------- Quality Gate 2: Static analysis --------
     - name: Static analysis
-      run: cppcheck \
-            --enable=warning,performance,portability \
-            --error-exitcode=1 \
-            --suppress=missingIncludeSystem \
-            src/
+      run: cppcheck --enable=warning,performance,portability --error-exitcode=1 --suppress=missingIncludeSystem src/
 
 
     # -------- CI --------
