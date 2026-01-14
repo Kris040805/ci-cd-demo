@@ -15,6 +15,6 @@ TEST_CASE("Division works correctly")
 
 TEST_CASE("Division by zero throws exception")
 {
-    // CHECK_THROWS(divide(5, 0));
-    CHECK(divide(5, 0) == 1);
+    CHECK_THROWS(divide(5, 0));
+    // CHECK(divide(5, 0) == 1);
 }
