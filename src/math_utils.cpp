@@ -3,10 +3,10 @@
 
 int add(int a, int b)
 {
-    return a + b;
+    // return a + b;
 
     // test fail
-    // return a - b;
+    return a - b;
 }
 
 double divide(int a, int b)
