@@ -1,14 +1,13 @@
 #include "math_utils.hpp"
 #include <stdexcept>
 
-int add(int a, int b) {
+int add(int a, int b)
+{
     return a + b;
 
-
-
     // test fail
-    // return a - b; 
-    }
+    // return a - b;
+}
 
 double divide(int a, int b)
 {
