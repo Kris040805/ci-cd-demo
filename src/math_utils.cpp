@@ -4,6 +4,8 @@
 int add(int a, int b)
 {
     return a + b;
+
+    // test fail
     // return a - b;
 }
 
@@ -14,4 +16,7 @@ double divide(int a, int b)
         throw std::invalid_argument("Division by zero");
     }
     return static_cast<double>(a) / b;
+
+    // static analysis fail
+    // return a / 0;
 }
