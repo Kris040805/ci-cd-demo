@@ -20,7 +20,7 @@ jobs:
 
     # -------- Quality Gate 1: Formatting --------
     - name: Check code formatting
-      run: clang-format -n src/*.cpp src/*.hpp
+      run: clang-format -n src/*.cpp src/*.hpp tests/*.cpp
 
     # -------- Quality Gate 2: Static analysis --------
     - name: Static analysis
