@@ -1,0 +1,49 @@
+name: C++ CI/CD with Quality Gates
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  build-test-and-deliver:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ cmake clang-format cppcheck
+
+    # -------- Quality Gate 1: Formatting --------
+    - name: Check code formatting
+      run: clang-format -n src/*.cpp src/*.h tests/*.cpp
+
+    # -------- Quality Gate 2: Static analysis --------
+    - name: Static analysis
+      run: cppcheck --enable=all --error-exitcode=1 src/
+
+    # -------- CI --------
+    - name: Configure project
+      run: cmake -S . -B build
+
+    - name: Build project
+      run: cmake --build build
+
+    - name: Run tests
+      run: ./build/tests
+
+    # -------- CD --------
+    - name: Package artifacts
+      run: |
+        mkdir artifact
+        cp build/tests artifact/
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: cpp-artifact
+        path: artifact/
