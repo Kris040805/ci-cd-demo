@@ -1,7 +1,9 @@
 #include "math_utils.hpp"
 #include <stdexcept>
 
-int add(int a, int b) { return a + b;
+int add(int a, int b)
+{
+    return a + b;
     // return a - b;
 }
 
